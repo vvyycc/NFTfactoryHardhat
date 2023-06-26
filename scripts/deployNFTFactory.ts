@@ -1,11 +1,15 @@
-import { ethers } from "hardhat";
-
+import { artifacts, ethers } from "hardhat";
 async function main() {
-    const NFTFactory = await ethers.getContractFactory("NFTFactory");
-    const nftFactory = await NFTFactory.deploy();
-    await nftFactory.deployed();
+    
+    // Read the contract's ABI
+  const abiContract = await artifacts.readArtifact("nftFactory");
 
-    console.log("NFT Factory contract deployed to:", nftFactory.address);
+  // Deploy the contract
+  const NFTFactory = await ethers.getContractFactory(abiContract.abi, abiContract.bytecode);
+  const nftFactory = await NFTFactory.deploy();
+  await nftFactory.deployed();
+
+  console.log("NFT Factory contract deployed to:", nftFactory.address);
 }
 
 main()

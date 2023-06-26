@@ -37,13 +37,4 @@ describe('nftFactory', () => {
     expect(tokenId2).to.equal(Number(tokenId1)+1);
   });
 });
- 
-  // it("should return the correct token URI", async () => {
-  //   const tokenId = 1;
-  //   const expectedURI = "https://ipfs.io/ipfs/QmQE1FzbGqJbqwm82GCPZGMFUWUBnyCiiJpGY3nJjVgKyu/"+tokenId+".json";
-
-  //   const tokenURI = await nftTemplate.tokenURI(tokenId);
-
-  //   expect(tokenURI).to.equal(expectedURI);
-  // });
   

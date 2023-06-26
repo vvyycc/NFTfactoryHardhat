@@ -9,8 +9,9 @@ import "@nomiclabs/hardhat-ethers";
 import "solidity-coverage";
 
 dotenv.config();
-const privateKey= process.env.PRIVATE_KEY
-const url= process.env.DEPLOY_KEY_SEPOLIA
+const privateKey= process.env.PRIVATE_KEY;
+const urlSepo= process.env.DEPLOY_KEY_SEPOLIA;
+const urlGoerli=process.env.DEPLOY_KEY_GOERLI;
 const etherscanKey= process.env.ETHERSCAN_API_KEY;
 
 let deploySepolia: Array<string>= new  Array<string>();
@@ -40,14 +41,14 @@ const config: HardhatUserConfig = {
         chainId: 1337,
       },
       sepolia: {
-        url: url,
+        url: urlSepo,
         accounts: [`0x${privateKey}`],
       },
-       
-        rinkeby: {
-          url: url,
-          accounts:[`0x${privateKey}`],
-        },
+      goerli: {
+        url: urlGoerli,
+        accounts: [`0x${privateKey}`],
+      },
+    
       localhost: {
       accounts:process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
       url: "http://127.0.0.1:8545"
