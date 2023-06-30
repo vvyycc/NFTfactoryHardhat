@@ -12,7 +12,16 @@ contract nftFactory is ERC721URIStorage {
 
     event CreatedNFT(uint256 indexed tokenId, string tokenURI);
 
-    constructor() ERC721("My NFT Collection", "MNC") {}
+    constructor() ERC721("My NFT Collection", "MNC") {
+        uint256 numberOfNFTs = 7;
+        for (uint256 i = 0; i < numberOfNFTs; i++) {
+          _tokenIds.increment(); // Start from token ID 1
+            _safeMint(msg.sender, _tokenIds.current());
+            _setTokenURI(_tokenIds.current(), string(abi.encodePacked("https://ipfs.io/ipfs/QmQE1FzbGqJbqwm82GCPZGMFUWUBnyCiiJpGY3nJjVgKyu/", i,".json")));
+
+            
+                }
+    }
 
     function mint(string memory _tokenURI) public returns (uint256) {
         uint256 newItemId =  _tokenIds.current() + 1;
