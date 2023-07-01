@@ -11,7 +11,7 @@ describe('nftFactory', () => {
   });
 
   it('should mint a new NFT and set the token URI', async () => {
-    const baseURI = `turquoise-naughty-quail-179.mypinata.cloud/ipfs/QmY6Xhd8ZQh55M8vy9pqdW8SFkshtFqqVRd1jTYLNozmPp/`;
+    const baseURI = `https://gateway.pinata.cloud/ipfs/QmY6Xhd8ZQh55M8vy9pqdW8SFkshtFqqVRd1jTYLNozmPp/`;
     const tx = await nftFactory.mint(baseURI);
     const receipt = await tx.wait();
     const event = receipt.events.find((event: { event: string; }) => event.event === 'CreatedNFT');
@@ -23,7 +23,7 @@ describe('nftFactory', () => {
   });
 
   it('should increment token IDs correctly', async () => {
-    const baseURI = 'turquoise-naughty-quail-179.mypinata.cloud/ipfs/QmY6Xhd8ZQh55M8vy9pqdW8SFkshtFqqVRd1jTYLNozmPp/';
+    const baseURI = 'https://gateway.pinata.cloud/ipfs/QmY6Xhd8ZQh55M8vy9pqdW8SFkshtFqqVRd1jTYLNozmPp/';
 
     const transaction1 = await nftFactory.mint(baseURI);
     const transaction2 = await nftFactory.mint(baseURI);

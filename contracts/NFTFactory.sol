@@ -5,7 +5,7 @@ import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 
 contract nftFactory is ERC721URIStorage {
-    string constant BASE_URI = "turquoise-naughty-quail-179.mypinata.cloud/ipfs/QmY6Xhd8ZQh55M8vy9pqdW8SFkshtFqqVRd1jTYLNozmPp/";
+    string constant BASE_URI = "https://gateway.pinata.cloud/ipfs/QmY6Xhd8ZQh55M8vy9pqdW8SFkshtFqqVRd1jTYLNozmPp/";
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
 
