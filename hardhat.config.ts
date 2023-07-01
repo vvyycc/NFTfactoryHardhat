@@ -39,10 +39,12 @@ const config: HardhatUserConfig = {
     networks: {
       hardhat: {
         chainId: 1337,
+      
       },
       sepolia: {
         url: urlSepo,
         accounts: [`0x${privateKey}`],
+        
       },
       goerli: {
         url: urlGoerli,
@@ -53,15 +55,19 @@ const config: HardhatUserConfig = {
       accounts:process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
       url: "http://127.0.0.1:8545"
     }
+    
   },
   
   etherscan:{
-    apiKey:etherscanKey
+    apiKey:etherscanKey,
+    
   },
   gasReporter: {
+  
     enabled: process.env.REPORT_GAS !== undefined,
     currency: "USD",
   },
+
 
 };
 

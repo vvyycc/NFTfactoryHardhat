@@ -1,26 +1,18 @@
 // SPDX-License-Identifier: MIT
-// pragma solidity ^0.8.0;
-pragma solidity ^0.8.1;
+pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 
 contract nftFactory is ERC721URIStorage {
-    string constant BASE_URI = "https://ipfs.io/ipfs/QmQE1FzbGqJbqwm82GCPZGMFUWUBnyCiiJpGY3nJjVgKyu/";
+    string constant BASE_URI = "turquoise-naughty-quail-179.mypinata.cloud/ipfs/QmY6Xhd8ZQh55M8vy9pqdW8SFkshtFqqVRd1jTYLNozmPp/";
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
 
     event CreatedNFT(uint256 indexed tokenId, string tokenURI);
 
-    constructor() ERC721("My NFT Collection", "MNC") {
-        uint256 numberOfNFTs = 7;
-        for (uint256 i = 0; i < numberOfNFTs; i++) {
-          _tokenIds.increment(); // Start from token ID 1
-            _safeMint(msg.sender, _tokenIds.current());
-            _setTokenURI(_tokenIds.current(), string(abi.encodePacked("https://ipfs.io/ipfs/QmQE1FzbGqJbqwm82GCPZGMFUWUBnyCiiJpGY3nJjVgKyu/", i,".json")));
-
-            
-                }
+    constructor() ERC721("Forest Collection", "FC") {
+      
     }
 
     function mint(string memory _tokenURI) public returns (uint256) {
